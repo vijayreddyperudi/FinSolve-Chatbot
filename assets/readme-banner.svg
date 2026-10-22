@@ -1,0 +1,47 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="360" viewBox="0 0 1200 360" role="img" aria-labelledby="title description">
+  <title id="title">FinSolve RAG Assistant</title>
+  <desc id="description">A role-aware AI assistant that answers questions from FinSolve documents.</desc>
+  <defs>
+    <linearGradient id="background" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#101d35"/>
+      <stop offset="1" stop-color="#153b54"/>
+    </linearGradient>
+    <linearGradient id="accent" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#5eead4"/>
+      <stop offset="1" stop-color="#60a5fa"/>
+    </linearGradient>
+    <filter id="glow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="24"/>
+    </filter>
+  </defs>
+  <rect width="1200" height="360" rx="28" fill="url(#background)"/>
+  <circle cx="1010" cy="90" r="100" fill="#38bdf8" opacity=".14" filter="url(#glow)"/>
+  <circle cx="1080" cy="260" r="110" fill="#2dd4bf" opacity=".12" filter="url(#glow)"/>
+  <path d="M0 292C210 242 310 350 550 292s383-27 650 23v45H0Z" fill="#fff" opacity=".035"/>
+  <g transform="translate(78 78)">
+    <rect width="58" height="58" rx="17" fill="url(#accent)"/>
+    <path d="M17 17h24v5H22v7h16v5H22v7h19v5H17z" fill="#10243a"/>
+    <circle cx="46" cy="43" r="7" fill="#10243a"/>
+    <circle cx="46" cy="43" r="3" fill="#5eead4"/>
+  </g>
+  <text x="78" y="190" fill="#f8fafc" font-family="Segoe UI, Arial, sans-serif" font-size="49" font-weight="700">FinSolve RAG Assistant</text>
+  <text x="80" y="232" fill="#cbd5e1" font-family="Segoe UI, Arial, sans-serif" font-size="20">Role-aware answers grounded in your company documents.</text>
+  <g font-family="Segoe UI, Arial, sans-serif" font-size="14" font-weight="600">
+    <rect x="80" y="267" width="98" height="34" rx="17" fill="#ffffff" opacity=".1"/>
+    <text x="129" y="289" text-anchor="middle" fill="#a7f3d0">FASTAPI</text>
+    <rect x="190" y="267" width="112" height="34" rx="17" fill="#ffffff" opacity=".1"/>
+    <text x="246" y="289" text-anchor="middle" fill="#bae6fd">STREAMLIT</text>
+    <rect x="314" y="267" width="104" height="34" rx="17" fill="#ffffff" opacity=".1"/>
+    <text x="366" y="289" text-anchor="middle" fill="#ddd6fe">CHROMADB</text>
+    <rect x="430" y="267" width="80" height="34" rx="17" fill="#ffffff" opacity=".1"/>
+    <text x="470" y="289" text-anchor="middle" fill="#fde68a">GROQ</text>
+  </g>
+  <g transform="translate(825 83)" fill="none" stroke="url(#accent)" stroke-width="3">
+    <path d="M38 7h105a15 15 0 0 1 15 15v59a15 15 0 0 1-15 15H84l-24 19V96H38a15 15 0 0 1-15-15V22A15 15 0 0 1 38 7Z"/>
+    <path d="M68 39h61M68 56h46M68 73h54"/>
+    <path d="M185 42a31 31 0 1 1-8 43M185 42v24h-24"/>
+    <circle cx="185" cy="73" r="6" fill="#5eead4" stroke="none"/>
+    <path d="M205 129h-95a15 15 0 0 1-15-15v-4"/>
+    <circle cx="101" cy="109" r="5" fill="#60a5fa" stroke="none"/>
+  </g>
+</svg>

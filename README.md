@@ -1,4 +1,15 @@
-# FinSolve RAG Assistant
+<p align="center">
+  <img src="assets/readme-banner.svg" alt="FinSolve RAG Assistant — role-aware answers grounded in company documents" width="100%">
+</p>
+
+<p align="center">
+  <a href="https://github.com/vijayreddyperudi/multi-role-rag-chatbot"><img src="https://img.shields.io/badge/GitHub-Repository-181717?logo=github" alt="GitHub repository"></a>
+  <img src="https://img.shields.io/badge/Python-3.10%2B-3776AB?logo=python&logoColor=white" alt="Python">
+  <img src="https://img.shields.io/badge/RAG-Role--Aware-0F766E" alt="Role-aware RAG">
+  <img src="https://img.shields.io/badge/License-Not%20specified-lightgrey" alt="License not specified">
+</p>
+
+<p align="center"><b>Ask questions. Get grounded answers. See the sources.</b></p>
 
 Ask questions about FinSolve company documents with a role-aware retrieval-augmented generation (RAG) assistant. The project combines a Streamlit chat interface, a FastAPI service, ChromaDB for vector search, sentence-transformers for embeddings, and Groq for answer generation.
 
@@ -14,17 +25,9 @@ Ask questions about FinSolve company documents with a role-aware retrieval-augme
 
 ## How it works
 
-```text
-Markdown documents
-        |
-        v
-Ingest -> Chunk -> Embed -> ChromaDB
-                              |
-Question -> Streamlit -> FastAPI -> Role-filtered retrieval
-                                      |
-                                      v
-                                Groq response + sources
-```
+<p align="center">
+  <img src="assets/rag-workflow.svg" alt="RAG pipeline: documents are ingested, chunked, embedded, and indexed; questions flow through Streamlit and FastAPI to role-filtered retrieval and Groq, returning answers with sources" width="100%">
+</p>
 
 ## Requirements
 
