@@ -39,7 +39,7 @@ if st.button("Ask FinSolve", type="primary"):
             with st.spinner(
                 "Searching documents and generating an answer..."
             ):
-                result = get_llm_response(
+                result = generate_answer(
                     question=question.strip(),
                     user_role=role,
                 )
