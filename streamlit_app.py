@@ -1,8 +1,5 @@
-
-import requests
 import streamlit as st
-
-API_URL = "http://127.0.0.1:8000/ask"
+from app.services.llm_service import get_llm_response
 
 st.set_page_config(
     page_title="FinSolve AI Assistant",
@@ -38,44 +35,35 @@ if st.button("Ask FinSolve", type="primary"):
             with st.spinner(
                 "Searching documents and generating an answer..."
             ):
-                response = requests.post(
-                    API_URL,
-                    headers={"x-user-role": role},
-                    json={
-                        "question": question.strip(),
-                    },
-                    timeout=120,
+                result = get_llm_response(
+                    question=question.strip(),
+                    user_role=role,
                 )
 
-            if response.ok:
-                result = response.json()
-
-                st.subheader("Answer")
-                st.write(
-                    result.get("answer", "No answer returned.")
-                )
-
-                st.subheader("Sources")
+            # Support either a dict response (like {"answer": ..., "sources": ...}) or a plain string
+            if isinstance(result, dict):
+                answer = result.get("answer", "No answer returned.")
                 sources = result.get("sources", [])
-
-                if sources:
-                    for source in sources:
-                        st.write(
-                            f"- {source['source']} "
-                            f"(Department: {source['department']})"
-                        )
-                else:
-                    st.info("No source documents were returned.")
-
             else:
-                st.error(
-                    f"API error ({response.status_code})"
-                )
-                st.write(response.text)
+                answer = result
+                sources = []
 
-        except requests.RequestException as error:
-            st.error(
-                "Could not connect to the API. "
-                "Check that FastAPI is running in the first terminal."
-            )
+            st.subheader("Answer")
+            st.write(answer)
+
+            st.subheader("Sources")
+            if sources:
+                for source in sources:
+                    if isinstance(source, dict):
+                        st.write(
+                            f"- {source.get('source', 'Unknown')} "
+                            f"(Department: {source.get('department', 'N/A')})"
+                        )
+                    else:
+                        st.write(f"- {source}")
+            else:
+                st.info("No source documents were returned.")
+
+        except Exception as error:
+            st.error("Failed to generate an answer.")
             st.caption(str(error))
