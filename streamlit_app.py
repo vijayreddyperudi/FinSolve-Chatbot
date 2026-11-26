@@ -1,4 +1,5 @@
 import streamlit as st
+
 try:
     from app.llm_service import generate_answer
 except Exception as e:
@@ -39,10 +40,11 @@ if st.button("Ask FinSolve", type="primary"):
             with st.spinner(
                 "Searching documents and generating an answer..."
             ):
-                result = generate_answer(
-                    question=question.strip(),
-                    user_role=role,
+                formatted_prompt = (
+                    f"Department Role: {role}\n"
+                    f"Question: {question.strip()}"
                 )
+                result = generate_answer(prompt=formatted_prompt)
 
             # Support either a dict response (like {"answer": ..., "sources": ...}) or a plain string
             if isinstance(result, dict):
