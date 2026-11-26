@@ -1,5 +1,9 @@
 import streamlit as st
-from app.llm_service import get_llm_response
+try:
+    from app.llm_service import get_llm_response
+except Exception as e:
+    st.error(f"Import failed: {type(e).__name__}: {e}")
+    st.stop()
 
 st.set_page_config(
     page_title="FinSolve AI Assistant",
