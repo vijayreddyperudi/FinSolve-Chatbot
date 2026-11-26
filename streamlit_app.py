@@ -1,5 +1,5 @@
 import streamlit as st
-from app.services.llm_service import get_llm_response
+from app.llm_service import get_llm_response
 
 st.set_page_config(
     page_title="FinSolve AI Assistant",
@@ -63,7 +63,6 @@ if st.button("Ask FinSolve", type="primary"):
                         st.write(f"- {source}")
             else:
                 st.info("No source documents were returned.")
-
         except Exception as error:
             st.error("Failed to generate an answer.")
             st.caption(str(error))
