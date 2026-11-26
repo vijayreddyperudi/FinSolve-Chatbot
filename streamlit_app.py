@@ -1,6 +1,6 @@
 import streamlit as st
 try:
-    from app.llm_service import get_llm_response
+    from app.llm_service import generate_answer
 except Exception as e:
     st.error(f"Import failed: {type(e).__name__}: {e}")
     st.stop()
